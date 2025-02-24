@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Directory</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+            margin: 0; 
+            background-color: darkred;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        .salon-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .salon-container {
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background-color: rgb(194, 140, 140);
+            cursor: pointer; 
+        }
+
+        .salon-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .salon-details {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .salon-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: rgb(1, 65, 28);
+        }
+
+        
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1;
+            left:0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center; 
+            align-items: center;
+           z-index: 1000; 
+        }
+
+        .modal-content {
+            background-color: #fcf8f8;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+            position: relative; 
+            align-items: center;
+            background-image: url(backimg3.0.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+           
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 20px;
+            font-weight:bolder;
+            cursor: pointer;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .services-list {
+            list-style-type: none;
+            padding: 0;
+            font-size:large;
+            color: rgb(6, 94, 43);
+        }
+      
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="salon-grid" id="salonGrid">
+        </div>
+    </div>
+
+    <div id="salonModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+         
+            <h2 id="modalSalonName"></h2>
+            <ul id="modalServices" class="services-list">
+                </ul>
+                <p id="modalLocation"></p>
+                <P id="modalContact" ></P>
+        </div>
+    </div>
+
+
+    <script>
+        const salonGrid = document.getElementById("salonGrid");
+        const salonModal = document.getElementById("salonModal");
+       
+        const modalSalonName = document.getElementById("modalSalonName");
+        const modalServices = document.getElementById("modalServices");
+        const modalLocation = document.getElementById("modalLocation");
+        const modalContact = document.getElementById("modalContact");
+        const salons = [
+            {
+                name: "Bosslady",
+                image: "bosslady.jpeg",
+                location: 'location:sunrise avenue',
+                contact:'for further enquiry and booking of services call us at 0712763347',
+                services: [
+                    { service: 'twist out', price: '500' },
+                    { service: 'braids', price: '1000' },
+                    { service: 'temporary dreads', price: '3000' },
+                    { service :'coco twist', price :'3000'},
+                    { service: 'gel+tips',price : '700'},
+                    { service: 'nail polish',price : '100'},
+                    { service: 'gel',price : '500'}
+                ]
+            },
+            {
+                name: "Biggirls",
+                image: "biggirls.jpeg",
+                location: 'location:verity street',
+                contact:'for further enquiry and booking of services call us at 0712763347',
+                services: [
+        { service: 'trimming', price: '100' },
+          { service: 'braids', price: '1000' },
+          { service: 'temporary dreads', price: '3000' },
+          {service :'sistar locks', price :'10000'},
+          {service: 'mini twists',price : '500'},
+          {service: 'gel+tips',price : '700'},
+          {service: 'gel',price : '500'}
+        ]
+            },
+            {
+                name: "Nogreys",
+                image: "nogreys.jpeg",
+                location: 'location:shirikisho road',
+                contact:'for further enquiry and booking of services call us at 0712763347',
+                services: [
+        { service: 'lines/cornrows', price: '200' },
+          { service: 'knot braids', price: '700' },
+          { service: 'knotless', price: '750' },
+          {service :'wash', price :'120'},
+          {service: 'mini twists',price : '500'},
+          {service: 'gel+tips',price : '750'},
+          {service: 'gel',price : '520'}
+        ]
+            },
+            {
+                name: "Angel",
+                image: "Angel.jpeg",
+                location: 'location:Adison street',
+                contact:'for further enquiry and booking of services call us at 0712763347',
+                services: [
+        { service: 'lines', price: '200' },
+          { service: 'braided bun', price: '500' },
+          { service: 'Box braids', price: '1000' },
+          {service :'wash', price :'120'},
+          {service: 'mini twists',price : '400'},
+          {service: 'gel+tips',price : '700'},
+          {service: 'gel',price : '400'}
+        ]
+            }
+        ];
+
+        function createSalonElement(salon) {
+            const salonContainer = document.createElement("div");
+            salonContainer.classList.add("salon-container");
+            salonContainer.addEventListener("click", () => openModal(salon)); 
+
+            const salonImage = document.createElement("img");
+            salonImage.src = salon.image;
+            salonImage.alt = salon.name;
+            salonImage.classList.add("salon-image");
+            salonContainer.appendChild(salonImage);
+
+            const salonDetails = document.createElement("div");
+            salonDetails.classList.add("salon-details");
+
+            const salonName = document.createElement("div");
+            salonName.classList.add("salon-name");
+            salonName.textContent = salon.name;
+            salonDetails.appendChild(salonName);
+
+            const salonLocation = document.createElement("div"); 
+            salonLocation.classList.add("salon-location"); 
+            salonLocation.textContent = salon.location; 
+            salonDetails.appendChild(salonLocation);
+
+            const salonContact = document.createElement("div"); 
+            salonContact.classList.add("salon-contact");
+            salonContact.textContent = salon.contact;
+            salonDetails.appendChild(salonContact);
+
+            salonContainer.appendChild(salonDetails);
+            return salonContainer;
+        }
+
+        function openModal(salon) {
+           
+            modalSalonName.textContent = salon.name;
+
+            modalServices.innerHTML = ""; 
+         
+            salon.services.forEach(serviceItem => {
+                const li = document.createElement("li");
+                li.textContent = `${serviceItem.service} - Ksh${serviceItem.price}`; 
+                modalServices.appendChild(li);
+            });
+            modalLocation.textContent = salon.location;
+            modalContact.textContent = salon.contact; 
+            salonModal.style.display = "block";
+        }
+
+        function closeModal() {
+            salonModal.style.display = "none";
+        }
+
+        salons.forEach(salon => {
+            const salonElement = createSalonElement(salon);
+            salonGrid.appendChild(salonElement);
+        });
+
+        
+        window.onclick = function(event) {
+            if (event.target == salonModal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

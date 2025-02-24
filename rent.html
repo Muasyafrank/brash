@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muasya Rental</title>
+    <link rel="icon" href="header.png">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+</head>
+<body>
+    <header>
+        <nav><link rel="stylesheet" href="style.css">
+            <div class="nav-header">
+              <div class="nav-logo">
+                <a href="#">VroomAway</a>
+              </div>
+              <div class="nav-menu-btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
+              </div>  
+            </div>
+            <ul class="nav-links" id="nav_links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rent">Rent</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#ride">Ride</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </li>
+            <li class="nav-link-btn">
+                <button class="btn">Sign Up</button>
+            </li>
+            <li class="nav-link-btn">
+                <button class="btn">Sign In</button>
+            </li>
+            </ul>
+            <div class="nav-btns">
+                <button class="btn btn_primary">Sign Up</button>
+                <button class="btn btn_secondary">Sign in</button>
+            </div>
+        </nav>
+        <div class="section_header header_container" id="home">
+            <div class="header_image">
+                <img src="header.png" alt="header">
+            </div>
+            <div class="header_content">
+                <h1>Looking to save more on your rental car?</h1>
+                <p>
+                    Discover VroomAway in Kenya and explore a wide range of car rental options tailored to your needs. 
+                 </p>
+                <div class="header-links">
+                    <a href="#">
+                        <img src="store.jpg" alt="App Store">
+                    </a>
+                    <a href="#">
+                        <img src="play.png" alt="Play Store">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <section class="rent-section" id="rents">
+        <div class="section-header">
+            <h2>Find Perfect Rental Car</h2>
+            <p>Book in minutes with our easy-to-use tools and features.</p>
+        </div>
+        <!-- Booking and Searching form -->
+         <form action="" class="search-form">
+            <label for="lo">Choose Location</label>
+            <select name="location" id="">
+                <option value="nairobi">Nairobi</option>
+                <option value="mombasa">Mombasa</option>
+                <option value="nyeri">Nyeri</option>
+                <option value="nakuru">Nakuru</option>
+                <option value="machakos">Machakos</option>
+            </select>
+            <label for="">Pickup-Date</label>
+            <input type="date" name="pickup-date" id="" placeholder="Pickup-Date">
+            <label for="">Return Date</label>
+            <input type="date" name="pickup-date" id="" placeholder="Pickup-Date">
+            <button id="search" type="submit">Search</button>
+         </form>
+         <div class="section-header">
+            <h2>Exclusive Rental Options</h2>
+         </div>
+         <div class="card-grid">
+            <div class="card">
+                <img src="luxury.jpg" alt="Luxury">
+                <h4>Luxury Car</h4>
+                <p>From $80/day - Perfect for special occassions</p>
+                <button>View More</button>
+            </div>
+            <div class="card">
+                <img src="economy.jpg" alt="">
+                <h4>Economy Car</h4>
+                <p>From $25/day - Great for city trips</p>
+                <button>View More</button>
+            </div>
+            <div class="card">
+                <img src="suv.jpg" alt="">
+                <h4>SUVs</h4>
+                <p>From $40/day - Ideal for Family trips</p>
+                <button>View More</button>
+            </div>
+         </div>
+    </section>
+
+
+        <footer>
+            <div class="section_container footer_container">
+                <div class="footer-col">
+                    <h4>Our Products</h4>
+                    <ul class="footer_links">
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Hotels</a></li>
+                        <li><a href="#">Cars</a></li>
+                        <li><a href="#">Packages</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Priceline</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About VroomAway</h4>
+                    <ul class="footer_links">
+                        <li><a href="#">Why VroomAway</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Press Centers</a></li>
+                        <li><a href="#">Advertise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer_links">
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Help Centers</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Partner Network</a></li>
+                        <li><a href="#">Mechanics</a></li>
+                        <li><a href="#">Developer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Extras</h4>
+                    <ul class="footer_links">
+                        <li><a href="#">Rental Deal</a></li>
+                        <li><a href="#">Repair Shop</a></li>
+                        <li><a href="#">View Booking</a></li>
+                        <li><a href="#">Hire Companies</a></li>
+                        <li><a href="#">New Offers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section_container footer_bar">
+                <h4>VroomAway</h4>
+                <p>
+                  Copyright 2024 Muasya Devs.All rights reserved.  
+                </p>
+                <ul class="footer-socials">
+                    <li><a href="#"><i class="ri-facebook-circle-fill"></i></a></li>
+                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                    <li><a href="#"><i class="ri-tiktok-fill"></i></a></li>
+                    <li><a href="#"><i class="ri-whatsapp-line"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="index.js"></script>
+</body>
+</html>

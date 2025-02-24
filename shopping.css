@@ -1,0 +1,256 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+#header{
+    background-image: linear-gradient(rgba(235, 227, 227, 0.5),red),url("market.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+}
+.logo{
+    width: auto;
+    position: absolute;
+    top: 4%;
+    left: 10%;    
+    font-family: "Courgette",serif;
+    font-size: 2rem;
+    font-weight: 700;
+
+}
+.header-text{
+    text-align: center;
+    color: white;
+    padding-top: 180px;
+}
+.header-text h1{
+    font-size: 4rem;
+    font-family: "Courgette", serif;
+}
+.header-text p{
+    font-size: 15px;
+    font-style: italic;
+    font-family: "Courgette",serif;
+    color: rebeccapurple;
+}
+#sideNav{
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    right: -250px;
+    top: 0;
+    background: red;
+    z-index: 2;
+    transition: 0.5s;
+    justify-content: center;
+}
+nav ul li{
+    list-style-type: none;
+    margin: 20px 30px;
+    text-transform: uppercase; 
+    justify-content: center;   
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-family: "Courgette" ,serif
+}
+#menuBtn{
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    background: red;
+    height: 40px;    
+    border-radius: 5px;
+    z-index: 3;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 40px;
+    font-size: 30px;
+    font-weight: 700;
+}
+#menu{
+    font-weight: 800;
+    font-size: 30px;
+}
+#shop{
+    width: 100%;
+    padding: 70px 30px;
+    background:white;
+}
+.titleText{
+    text-align: center;
+    font-size: 25px;
+    color: rgba(15, 2, 2, 0.974);
+    position: relative;
+    margin: auto;
+    font-weight: 700;    
+    font-family: "Courgette" ,serif;
+    z-index: 1;
+    text-transform: uppercase;
+    
+}
+.titleText::after{
+    content: " ";
+    width: 50px;
+    height: 25px;
+    background: linear-gradient(rgb(97, 8, 8),rgb(0, 255, 34));
+    position: absolute;
+    top: -10px;    
+    z-index: -1;
+    transform: rotate(10deg);
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+.shop-box{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.single-shop{
+    flex-basis: 48%;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: white;
+    position: relative;
+}
+.single-shop img{
+    width: 100%;
+    border-radius: 7px;
+}
+.overLay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    background-image: linear-gradient(rgba(235, 227, 227, 0.5),red);
+    opacity: 0;
+    transition: 1s;    
+}
+.single-shop:hover .overLay{
+    opacity: 1;
+}
+.shop-desc{
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: 1s;
+
+}
+.shop-desc h3{
+    font-size: 25px;
+    font-family: "Courgette" ,serif;
+    color: rebeccapurple;
+}
+.shop-desc a{
+    font-size: 15px;
+    text-decoration: none;
+    font-family: "Courgette" ,serif;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+}
+.single-shop:hover .shop-desc{
+    bottom: 40%;
+    opacity: 1;
+}
+.shop-desc a:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width:768px){
+    .header-text h1{
+
+        font-size:40px;
+        font-family: "Courgette",serif;
+    }
+    .logo{
+        font-size: 30px;
+        
+        font-family: "Courgette",serif;
+    }
+    .single-shop{
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+    .single-service{
+        flex-basis: 80%;
+        margin-bottom: 30px;
+    }
+    .shop-desc h3{
+        font-size: 15px;
+    }
+    .shop-desc p{
+        font-size: 10px;
+    }
+    .titleText{
+        font-size: 30px;
+    }
+}
+#service{
+    width: 100%;
+    padding: 70px 30px;
+    background:white;
+}
+.service-box{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.single-service{
+    flex-basis: 45%;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: white;
+    position: relative;
+
+}
+.single-service img{
+    width: 100%;
+    border-radius: 7px;
+    
+}
+.single-service:hover .shop-desc{
+    bottom: 40%;
+    opacity: 1;
+}
+.single-service:hover .overLay{
+    opacity: 1;
+}
+#footer{
+    width: 100%;
+    padding: 60px 30px;
+    background: #000;
+    color: white;
+    height: 30px;
+    border-radius: 30px;
+}
+
+.social-links {
+ text-align: center;
+  font-size: 25px;
+  color: #009688;
+  cursor: pointer;
+  
+}
+.social-links:hover .ri{
+    color: red;
+    transform: translateX(-10px);
+}

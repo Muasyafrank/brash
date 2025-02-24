@@ -1,0 +1,168 @@
+body{
+  background-image: url(Images/emergencybackground.jpg);
+  background-repeat: no-repeat;
+  background-position: 0%;
+  background-size: cover;
+  background-attachment: fixed;
+  font-size: 30px;
+  margin:0;
+  padding:0;
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 95%; 
+  }
+
+  .service-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-info img {
+    margin: 0 auto; 
+    max-width: 100%;
+  }
+}
+
+
+
+header{
+  display:flex;
+  justify-content: space-between;
+  text-align: center;
+ margin-top: 0px; 
+position: relative;
+   font-family: 'Times New Roman', Times, serif;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(78, 25, 25, 0.7)),url('Images/emergencycontacts.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding:10px;
+  top:0px;
+  left:0px;
+  right:0px;
+ 
+}
+
+@keyframes floatText{
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Moves text up */
+  }
+} 
+
+
+header h2{
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);margin-left: 30px;
+ 
+
+}
+
+header a{
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-right: 90px;
+}
+
+
+.heading{
+  margin-left: 90px;
+  font-size: 35;
+  animation: floatText 1.5s ease-in-out infinite;
+}
+
+.card {
+  width: 90%;
+  margin: 10px auto;
+  background-color:transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  padding:15px;
+  margin-left: 300px;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.service-info.reverse {
+  flex-direction: row-reverse;
+   
+}
+
+
+.card-reverse .service-info {
+  flex-direction: row-reverse;
+  width: 1000px;
+  margin: 10px auto;
+  background-color:transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  padding:15px;
+  margin-right: 300px;
+}
+
+.service-info img {
+  width:100%;
+ max-width: 600px; 
+  height: auto; 
+  margin-right: 300px; 
+  margin-left: 100px;
+  object-fit: cover;
+  border-radius: 25px;
+  box-shadow: #2c2727dc;
+  transition: transform 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px 5px rgba(8, 55, 112, 0.8);
+  
+}
+
+.police-services, .fire-services, .ambulance-services {
+  margin-bottom: 40px;
+}
+
+.fire-services .service-info img {
+  margin-left: 80px; 
+}
+
+
+
+
+footer {
+  background-color: #3b0303dc; 
+  color: white; 
+  text-align: center; 
+  padding: 15px 0; 
+  font-size: 14px;
+  
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #ffcc00; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline; 
+}
